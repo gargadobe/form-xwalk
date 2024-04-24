@@ -35,11 +35,7 @@ async function fieldChanged(payload, form, generateFormRendition) {
     switch (propertyName) {
       case 'required':
         field.toggleAttribute('required', currentValue === true);
-        if (currentValue === true) {
-          field.closest('.field-wrapper').dataset.required = '';
-        } else {
-          field.closest('.field-wrapper').removeAttribute('data-required');
-        }
+        field.closest('.field-wrapper').setAttribute('data-required',  currentValue === true );
         break;
       case 'validationMessage':
         if (field.setCustomValidity && payload.field.expressionMismatch) {
